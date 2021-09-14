@@ -46,14 +46,14 @@ class App extends React.Component {
           };
 
           this.setState({ weather: userWeather });
-        })
-      })
+        });
+      });
     }
-  }
+  };
 
   //update the value of the the input field with state
   changeRegion = (value) => {
-    this.setState({ regionInput: value })
+    this.setState({ regionInput: value });
   };
 
   //update the weather depending upon the value user entered
@@ -78,8 +78,8 @@ class App extends React.Component {
 
       this.setState({ weather: userWeather });
 
-    })
-  }
+    });
+  };
 
   render() {
     return (
