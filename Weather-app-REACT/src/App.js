@@ -14,7 +14,7 @@ class App extends React.Component {
     },
     weather: {},
     regionInput: ""
-  }
+  };
 
   componentDidMount() {
     //check whether geolocation is supported
@@ -25,12 +25,12 @@ class App extends React.Component {
         let pos = {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude
-        }
+        };
 
         this.setState({ userPosition: pos });
 
         //Weather Api call
-        Axios.get(`http://api.weatherstack.com/current?access_key=ee2c00a09ba65e4467143d28625d3fa2&query=${this.state.userPosition.latitude},${this.state.userPosition.longitude}`).then(res => {
+        Axios.get(`https://api.weatherstack.com/current?access_key=ee2c00a09ba65e4467143d28625d3fa2&query=${this.state.userPosition.latitude},${this.state.userPosition.longitude}`).then(res => {
 
           let userWeather = {
             temperature: res.data.current.temperature,
@@ -43,7 +43,7 @@ class App extends React.Component {
             precip: res.data.current.precip,
             humidity: res.data.current.humidity,
             img: res.data.current.weather_icons
-          }
+          };
 
           this.setState({ weather: userWeather });
         })
@@ -54,14 +54,14 @@ class App extends React.Component {
   //update the value of the the input field with state
   changeRegion = (value) => {
     this.setState({ regionInput: value })
-  }
+  };
 
   //update the weather depending upon the value user entered
   changeLocation = (e) => {
 
-    e.preventDefault()
+    e.preventDefault();
 
-    Axios.get(`http://api.weatherstack.com/current?access_key=ee2c00a09ba65e4467143d28625d3fa2&query=${this.state.regionInput}`).then(res => {
+    Axios.get(`https://api.weatherstack.com/current?access_key=ee2c00a09ba65e4467143d28625d3fa2&query=${this.state.regionInput}`).then(res => {
 
       let userWeather = {
         temperature: res.data.current.temperature,
@@ -74,7 +74,7 @@ class App extends React.Component {
         precip: res.data.current.precip,
         humidity: res.data.current.humidity,
         img: res.data.current.weather_icons
-      }
+      };
 
       this.setState({ weather: userWeather });
 
